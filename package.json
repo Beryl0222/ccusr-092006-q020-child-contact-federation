@@ -1,0 +1,10 @@
+{
+  "name": "child-contact-federation",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "儿童联系人跨品牌互通领域资料",
+  "scripts": {
+    "test": "node --test"
+  }
+}
