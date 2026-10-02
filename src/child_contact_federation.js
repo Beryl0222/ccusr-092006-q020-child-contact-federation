@@ -1,10 +1,14 @@
-// child_contact_federation 领域资料的基础结构。
-
-export const EVENT_KINDS = Object.freeze(["GUARDIAN_LINKED", "INTRO_PROOF_ISSUED", "CONTACT_CONFIRMED", "CAPABILITY_GRANTED", "RELATIONSHIP_REVOKED"]);
-export const REQUIRED_FIELDS = Object.freeze(["event_id", "kind", "occurred_at", "subject_id", "payload"]);
-
-export function validateEvent(record) {
-  const problems = REQUIRED_FIELDS.filter((name) => !(name in record));
-  if (!EVENT_KINDS.includes(record.kind)) problems.push("kind");
-  return problems;
-}
+// 向后兼容入口：早期资料从 child_contact_federation.js 导出基础约定，
+// 现统一收敛到 domain.js，旧引用保持可用。
+export {
+  EVENT_KINDS,
+  REQUIRED_FIELDS,
+  RELATIONSHIP_STATES,
+  INTRO_KINDS,
+  CAPABILITIES,
+  COMPLAINT_CATEGORIES,
+  REASON_CODES,
+  MINIMAL_CONTACT_FIELDS,
+  validateEvent,
+  findExcessiveFields,
+} from "./domain.js";
